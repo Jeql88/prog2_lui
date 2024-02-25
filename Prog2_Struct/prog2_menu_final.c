@@ -83,7 +83,7 @@ void main(){
                 printf("Enter the number of the order you want to remove.\n");
                 do{
                     scanf("%d",&input3);
-                } while(input3 < 1 && input3 > total);
+                } while(input3 < 1 && input3 > orders);
                 removeDish(customer_orders,&orders,input3-1,save_input,&main_menu);
                 displayOrder(customer_orders, orders);
                 break;
