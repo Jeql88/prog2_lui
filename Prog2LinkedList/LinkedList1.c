@@ -32,16 +32,25 @@ void insertAtStart(struct node *trav, int newData){
     temp->data = newData;
     trav->next = temp;
 }
+
 void insertAt(struct node *trav, int newData, int index){
+    
     for (int i = 0; i < index; ++i){
+        if (trav->next == NULL){
+            struct node *temp1 = (struct node*) malloc(sizeof(struct node));
+            temp1->next = NULL;
+            temp1->data = -5;
+            trav->next = temp1;
+        }
         trav = trav->next;
+        
+        
     }
     struct node *temp = (struct node*) malloc(sizeof(struct node));
     temp->next = trav->next;
     temp->data = newData;
     trav->next = temp;
 }
-
 
 int main(){
     struct node *head = (struct node*) malloc(sizeof(struct node));
@@ -61,7 +70,7 @@ int main(){
     insertrear(head,79);
     insertrear(head,89);
     insertAtStart(head,100);
-    insertAt(head,6969,2);
+    insertAt(head,6969,7);
     printThis(head);
 
     return 0;
