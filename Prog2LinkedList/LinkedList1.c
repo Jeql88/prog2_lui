@@ -39,7 +39,7 @@ void insertAt(struct node *trav, int newData, int index){
         if (trav->next == NULL){
             struct node *temp1 = (struct node*) malloc(sizeof(struct node));
             temp1->next = NULL;
-            temp1->data = -5;
+            temp1->data = 0;
             trav->next = temp1;
         }
         trav = trav->next;
@@ -50,6 +50,15 @@ void insertAt(struct node *trav, int newData, int index){
     temp->next = trav->next;
     temp->data = newData;
     trav->next = temp;
+}
+void deleteAllOccurence(struct node *trav, int to_delete){
+    while (trav->next != NULL){
+        if (trav->next->data == to_delete){
+            trav->next = trav->next->next;
+        } else{
+            trav = trav->next;
+        }
+    }
 }
 
 int main(){
@@ -69,8 +78,13 @@ int main(){
     insertrear(head,69);
     insertrear(head,79);
     insertrear(head,89);
+    insertrear(head,89);
+    insertrear(head,89);
+    insertrear(head,89);
+    insertrear(head,89);
     insertAtStart(head,100);
     insertAt(head,6969,7);
+    deleteAllOccurence(head,89);
     printThis(head);
 
     return 0;
